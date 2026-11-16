@@ -1,18 +1,21 @@
-
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class ChainExplodable : MonoBehaviour
 {
     [Header("Explosion Settings")]
-    public float explosionRadius = 1.2f;
-    public float explosionDelay = 0.25f;
+    public float explosionRadius = 0.7f;
+    public float explosionDelay = 0.2f;
+
+    [Header("Physics Debris (ซากตึก / ชิ้นส่วนรถกระเด็น)")]
+    public BuildingDebris2D[] debrisPrefabs;  // ใส่ Prefab เศษซากตึกหรือชิ้นส่วนรถ
+    public int debrisCount = 4;               // จำนวนชิ้นที่กระเด็นตอนระเบิด
+    public float debrisMinSpeed = 5f;         // ความเร็วกระเด็นต่ำสุด
+    public float debrisMaxSpeed = 9f;         // ความเร็วกระเด็นสูงสุด
 
     [Header("Score Settings")]
     public int scoreValue = 100;
-
-    public DestructibleType destructibleType =
-        DestructibleType.Barrel;
+    public DestructibleType destructibleType = DestructibleType.Barrel;
 
     [Header("Visual Effects")]
     public GameObject explosionEffectPrefab;
@@ -20,135 +23,138 @@ public class ChainExplodable : MonoBehaviour
 
     private bool hasExploded = false;
 
-    // �������ѵ����������Դ
     public void Explode()
     {
-        // ��ͧ�ѹ�ѵ�����Դ���
+        Explode(transform.position);
+    }
+
+    public void Explode(Vector2 sourcePosition)
+    {
         if (hasExploded)
-        {
             return;
-        }
 
         hasExploded = true;
 
-        // ����¹���Ҿ Damage �����
-        SpriteRenderer sr =
-            GetComponent<SpriteRenderer>();
-
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (damagedSprite != null && sr != null)
         {
             sr.sprite = damagedSprite;
         }
 
-        // ��������ѵ����������Դ
+        // แจ้ง GameResultManager ว่าเริ่มทำงาน (กันตัดจบด่านก่อนตึกล้มและซากตกพื้น)
         if (GameResultManager.Instance != null)
         {
-            GameResultManager.Instance
-                .RegisterExplosion();
+            GameResultManager.Instance.RegisterExplosion();
         }
 
-        StartCoroutine(ExplosionRoutine());
+        StartCoroutine(ExplosionRoutine(sourcePosition));
     }
 
-    private IEnumerator ExplosionRoutine()
+    private IEnumerator ExplosionRoutine(Vector2 sourcePosition)
     {
-        // ˹�ǧ���ҡ�͹���Դ
-        yield return new WaitForSeconds(
-            explosionDelay
-        );
+        yield return new WaitForSeconds(explosionDelay);
 
-        // ���ҧ Animation ���Դ���
         if (explosionEffectPrefab != null)
         {
-            Instantiate(
-                explosionEffectPrefab,
-                transform.position,
-                Quaternion.identity
-            );
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         }
 
-        // ������§���Դ
         if (BaBoomAudioManager.Instance != null)
         {
-            BaBoomAudioManager.Instance
-                .PlayExplosion();
+            BaBoomAudioManager.Instance.PlayExplosion();
         }
 
-        // ���ѵ��������������Դ
-        Collider2D[] hits =
-            Physics2D.OverlapCircleAll(
-                transform.position,
-                explosionRadius
-            );
-
+        // 1. ส่งแรงระเบิดระยะประชิดรอบตัว
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
         foreach (Collider2D hit in hits)
         {
-            ChainExplodable target =
-                hit.GetComponent<ChainExplodable>();
-
+            ChainExplodable target = hit.GetComponent<ChainExplodable>();
             if (target == null || target == this)
-            {
                 continue;
-            }
 
-            // ��Ǩ������ҧ�ҡ�ش�ٹ���ҧ
-            float distance = Vector2.Distance(
-                transform.position,
-                target.transform.position
-            );
-
-            // �����Դ������������
+            float distance = Vector2.Distance(transform.position, target.transform.position);
             if (distance <= explosionRadius)
             {
-                target.Explode();
+                target.Explode(transform.position);
             }
         }
 
-        // ���Դ�ͧ�������������ṹ
-        if (destructibleType !=
-            DestructibleType.PlayerBomb)
+        // 2. ดีดเศษซากฟิสิกส์ชุดแรกออกจากจุดระเบิด
+        Vector2 blastDir = ((Vector2)transform.position - sourcePosition).normalized;
+        SpawnDebrisBurst(transform.position, blastDir, debrisCount);
+
+        // 3. บันทึกคะแนน สถิติรถ/ตึก และ Combo เข้าระบบเดิม
+        if (destructibleType != DestructibleType.PlayerBomb)
         {
-            // ������ṹ��鹰ҹ
             if (ScoreManager.Instance != null)
             {
-                ScoreManager.Instance
-                    .AddScore(scoreValue);
+                ScoreManager.Instance.AddScore(scoreValue);
             }
 
-            // �ѺʶԵ�ö �֡ ��� Combo
-            ResultDataManager.RecordDestruction(
-                scoreValue,
-                destructibleType
-            );
+            ResultDataManager.RecordDestruction(scoreValue, destructibleType);
 
-            // ������§��ṹ
-            if (scoreValue > 0 &&
-                BaBoomAudioManager.Instance != null)
+            if (scoreValue > 0 && BaBoomAudioManager.Instance != null)
             {
-                BaBoomAudioManager.Instance
-                    .PlayScore();
+                BaBoomAudioManager.Instance.PlayScore();
             }
         }
 
-        // ����ҡ�����Դ��鹹����������
-        if (GameResultManager.Instance != null)
+        // 4. ถ้าเป็นตึกที่มี BuildingTopple2D ให้เอียงล้มไปทับเป้าหมายต่อก่อนลบ
+        BuildingTopple2D topple = GetComponent<BuildingTopple2D>();
+        if (topple != null)
         {
-            GameResultManager.Instance
-                .ExplosionFinished();
+            topple.StartTopple(sourcePosition, () =>
+            {
+                if (GameResultManager.Instance != null)
+                {
+                    GameResultManager.Instance.ExplosionFinished();
+                }
+            });
         }
+        else
+        {
+            // ถ้าเป็นรถ ถังน้ำมัน หรือระเบิด ให้จบการทำงานและลบทิ้งทันที
+            if (GameResultManager.Instance != null)
+            {
+                GameResultManager.Instance.ExplosionFinished();
+            }
 
-        // ź�ѵ�ط��١�����
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 
-    // �ʴ������� Scene View
+    // ฟังก์ชันดีดเศษซากฟิสิกส์ (เรียกใช้ได้ทั้งตอนระเบิด และตอนตึกล้มฟาดพื้น)
+    public void SpawnDebrisBurst(Vector2 origin, Vector2 preferredDir, int count)
+    {
+        if (debrisPrefabs == null || debrisPrefabs.Length == 0 || count <= 0)
+            return;
+
+        bool hasDirection = preferredDir.sqrMagnitude > 0.01f;
+
+        for (int i = 0; i < count; i++)
+        {
+            BuildingDebris2D prefab = debrisPrefabs[Random.Range(0, debrisPrefabs.Length)];
+            if (prefab == null) continue;
+
+            float baseAngle = hasDirection
+                ? Mathf.Atan2(preferredDir.y, preferredDir.x) * Mathf.Rad2Deg
+                : (360f / count) * i;
+
+            float randomSpread = hasDirection ? Random.Range(-70f, 70f) : Random.Range(-25f, 25f);
+            float finalAngleRad = (baseAngle + randomSpread) * Mathf.Deg2Rad;
+
+            Vector2 launchDir = new Vector2(Mathf.Cos(finalAngleRad), Mathf.Sin(finalAngleRad));
+            float speed = Random.Range(debrisMinSpeed, debrisMaxSpeed);
+            float spin = Random.Range(-360f, 360f);
+
+            BuildingDebris2D debris = Instantiate(prefab, origin, Quaternion.identity);
+            debris.Launch(launchDir * speed, spin, gameObject);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-
-        Gizmos.DrawWireSphere(
-            transform.position,
-            explosionRadius
-        );
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }

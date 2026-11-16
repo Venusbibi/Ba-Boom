@@ -174,10 +174,12 @@ public class BaBoomAudioManager : MonoBehaviour
         if (Instance != this)
             return;
 
-        if (lastSceneHandle == scene.handle)
+        int currentHandle = (int)scene.handle.GetRawData();
+
+        if (lastSceneHandle == currentHandle)
             return;
 
-        lastSceneHandle = scene.handle;
+        lastSceneHandle = currentHandle;
 
         string sceneName = scene.name;
 

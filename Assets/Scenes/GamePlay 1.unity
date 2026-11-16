@@ -301,7 +301,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -537,6 +537,11 @@ MonoBehaviour:
   bombsLeftText: {fileID: 528204525}
   bombsPerLevel: 2
   minimumBombSpacing: 0.5
+--- !u!1 &44324570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+  m_PrefabInstance: {fileID: 1556986134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &55794738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -713,6 +718,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
+--- !u!1 &67322729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6810199407199034061, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+  m_PrefabInstance: {fileID: 993823270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &71369350
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,10 +869,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1997741302}
   m_SourcePrefab: {fileID: 100100000, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
 --- !u!4 &109976855 stripped
 Transform:
@@ -983,6 +1008,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
+--- !u!1 &261766260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+  m_PrefabInstance: {fileID: 441795951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &270335140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1040,6 +1070,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
+--- !u!1 &320824400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1467004937797922871, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+  m_PrefabInstance: {fileID: 1831070350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &346060400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+  m_PrefabInstance: {fileID: 1058553261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &361315210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -1167,10 +1207,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7216334510075888515, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 616254323}
   m_SourcePrefab: {fileID: 100100000, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
 --- !u!4 &402741370 stripped
 Transform:
@@ -1238,10 +1293,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7216334510075888515, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 977095816}
   m_SourcePrefab: {fileID: 100100000, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
 --- !u!4 &408408151 stripped
 Transform:
@@ -1464,10 +1534,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1389336797}
   m_SourcePrefab: {fileID: 100100000, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
 --- !u!4 &429072158 stripped
 Transform:
@@ -1638,7 +1723,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1720,16 +1805,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 441795953}
   m_SourcePrefab: {fileID: 100100000, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
 --- !u!4 &441795952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4560461620755305666, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
   m_PrefabInstance: {fileID: 441795951}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &441795953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261766260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &450473442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1786,10 +1909,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7914348423848554349, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7216334510075888515, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835971808}
   m_SourcePrefab: {fileID: 100100000, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
 --- !u!4 &450473443 stripped
 Transform:
@@ -1804,6 +1942,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1795861069}
     m_Modifications:
+    - target: {fileID: 2281565808697901840, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281565808697901840, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 2281565808697901840, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 2962599476621774092, guid: 921980dd3a43e134094a81b502b93888, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1935.36
@@ -1851,7 +2001,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5755598566810325918, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1612179346}
   m_SourcePrefab: {fileID: 100100000, guid: 921980dd3a43e134094a81b502b93888, type: 3}
 --- !u!4 &480180346 stripped
 Transform:
@@ -1914,10 +2067,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1376907132}
   m_SourcePrefab: {fileID: 100100000, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
 --- !u!4 &480223582 stripped
 Transform:
@@ -2031,7 +2199,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2109,6 +2277,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
       propertyPath: m_Name
       value: Building 7 (4)
@@ -2116,7 +2296,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 721542936}
   m_SourcePrefab: {fileID: 100100000, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
 --- !u!4 &501714377 stripped
 Transform:
@@ -2157,7 +2340,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &513034894
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2214,6 +2397,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &514872291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -2383,7 +2567,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2521,15 +2705,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 4
   m_LightType: 4
   m_BlendStyleIndex: 0
+  m_Light2DProvider:
+    rid: -2
+  m_SelectionSources:
+    rid: 3936110158904295493
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000i
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2544,6 +2732,9 @@ MonoBehaviour:
   m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
@@ -2561,6 +2752,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 3936110158904295493
+      type: {class: Light2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_SelectedHashCode: 4
+        m_SelectedSource:
+          rid: -2
+        m_Provider2DCache:
+          rid: -2
 --- !u!4 &592376319
 Transform:
   m_ObjectHideFlags: 0
@@ -2576,6 +2780,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &616254322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7216334510075888515, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+  m_PrefabInstance: {fileID: 402741369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &616254323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616254322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &625905484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2750,7 +2982,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -2828,6 +3060,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &721542935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+  m_PrefabInstance: {fileID: 501714376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &721542936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721542935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!4 &726306925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -2881,6 +3141,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
       propertyPath: m_Name
       value: Building 7 (3)
@@ -2888,7 +3160,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 779191937}
   m_SourcePrefab: {fileID: 100100000, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
 --- !u!4 &729330856 stripped
 Transform:
@@ -2907,6 +3182,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6510198818682573980, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510198818682573980, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 6510198818682573980, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 7658813731882560328, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1933.1
@@ -2950,13 +3237,44 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1467004937797922871, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2089040770}
   m_SourcePrefab: {fileID: 100100000, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
 --- !u!4 &757851618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7658813731882560328, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
   m_PrefabInstance: {fileID: 757851617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &779191936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+  m_PrefabInstance: {fileID: 729330855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &779191937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779191936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &802468165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3229,7 +3547,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3259,6 +3577,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827316206}
   m_CullTransparentMesh: 1
+--- !u!1 &835971807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7216334510075888515, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+  m_PrefabInstance: {fileID: 450473442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835971808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835971807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &841344130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3630,7 +3976,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3669,6 +4015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 869914051}
+  - component: {fileID: 869914052}
   m_Layer: 0
   m_Name: City Prop
   m_TagString: Untagged
@@ -3695,6 +4042,29 @@ Transform:
   - {fileID: 513034893}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &869914052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869914050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!4 &877200779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -3952,6 +4322,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
+--- !u!1 &977095815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7216334510075888515, guid: e75170efe62ba3f47b3c7f082b091593, type: 3}
+  m_PrefabInstance: {fileID: 408408150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &977095816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977095815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!4 &982744058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -4141,16 +4539,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6810199407199034061, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 993823272}
   m_SourcePrefab: {fileID: 100100000, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
 --- !u!4 &993823271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5546312491147374884, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
   m_PrefabInstance: {fileID: 993823270}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &993823272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67322729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1 &997663313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,7 +4918,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -4564,16 +5000,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1058553263}
   m_SourcePrefab: {fileID: 100100000, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
 --- !u!4 &1058553262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4634255518166860425, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
   m_PrefabInstance: {fileID: 1058553261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1058553263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346060400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &1079263975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4679,6 +5153,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 2244229104562200735, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
       propertyPath: m_Name
       value: Building 7 (2)
@@ -4686,7 +5172,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2139319799}
   m_SourcePrefab: {fileID: 100100000, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
 --- !u!4 &1100731195 stripped
 Transform:
@@ -4865,10 +5354,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6810199407199034061, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1501968476}
   m_SourcePrefab: {fileID: 100100000, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
 --- !u!4 &1161244090 stripped
 Transform:
@@ -4927,10 +5431,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7214975730069421213, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1890076112}
   m_SourcePrefab: {fileID: 100100000, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
 --- !u!4 &1238992982 stripped
 Transform:
@@ -5081,6 +5600,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
+--- !u!1 &1282093773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6810199407199034061, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+  m_PrefabInstance: {fileID: 1825139648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1288980278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5194,16 +5718,120 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378708350}
   m_SourcePrefab: {fileID: 100100000, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
 --- !u!4 &1295275927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4560461620755305666, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
   m_PrefabInstance: {fileID: 1295275926}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1376907131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+  m_PrefabInstance: {fileID: 480223581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1376907132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376907131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
+--- !u!1 &1378041953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755598566810325918, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+  m_PrefabInstance: {fileID: 1757236460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1378708349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+  m_PrefabInstance: {fileID: 1295275926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1378708350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378708349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
+--- !u!1 &1389336796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+  m_PrefabInstance: {fileID: 429072157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1389336797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389336796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &1449649303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5266,6 +5894,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
   m_PrefabInstance: {fileID: 1052877186}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1501968475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6810199407199034061, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+  m_PrefabInstance: {fileID: 1161244089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1501968476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501968475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &1552959345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5432,16 +6088,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1556986136}
   m_SourcePrefab: {fileID: 100100000, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
 --- !u!4 &1556986135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4560461620755305666, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
   m_PrefabInstance: {fileID: 1556986134}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1556986136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44324570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1 &1560222987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,6 +6380,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f7320506bf6c6a4cbbfec06dd4bb970, type: 3}
+--- !u!1 &1612179345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755598566810325918, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+  m_PrefabInstance: {fileID: 480180345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612179346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612179345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!4 &1646878956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -5704,6 +6426,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1795861069}
     m_Modifications:
+    - target: {fileID: 2281565808697901840, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281565808697901840, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 2281565808697901840, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 2962599476621774092, guid: 921980dd3a43e134094a81b502b93888, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1926.88
@@ -5751,13 +6485,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5755598566810325918, guid: 921980dd3a43e134094a81b502b93888, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1757236462}
   m_SourcePrefab: {fileID: 100100000, guid: 921980dd3a43e134094a81b502b93888, type: 3}
 --- !u!4 &1757236461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2962599476621774092, guid: 921980dd3a43e134094a81b502b93888, type: 3}
   m_PrefabInstance: {fileID: 1757236460}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1757236462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378041953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1 &1770719571
 GameObject:
   m_ObjectHideFlags: 0
@@ -5891,10 +6651,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7672548876712175929, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2084205301}
   m_SourcePrefab: {fileID: 100100000, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
 --- !u!4 &1787082350 stripped
 Transform:
@@ -6063,16 +6838,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 7812459653380400713, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6810199407199034061, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1825139650}
   m_SourcePrefab: {fileID: 100100000, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
 --- !u!4 &1825139649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5546312491147374884, guid: b9702d5ea6b795a4ebc77adbecca8033, type: 3}
   m_PrefabInstance: {fileID: 1825139648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1825139650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282093773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1001 &1831070350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6085,6 +6898,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6510198818682573980, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      propertyPath: debrisPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510198818682573980, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 82658ae9d8457584a8a052fa50abd627, type: 3}
+    - target: {fileID: 6510198818682573980, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      propertyPath: 'debrisPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8173975675225813060, guid: 7f24dd394a5b40d4a8119b7982664c38, type: 3}
     - target: {fileID: 7658813731882560328, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1932.27
@@ -6128,13 +6953,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1467004937797922871, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1831070352}
   m_SourcePrefab: {fileID: 100100000, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
 --- !u!4 &1831070351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7658813731882560328, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
   m_PrefabInstance: {fileID: 1831070350}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1831070352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320824400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1 &1859973205
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,6 +7074,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
+--- !u!1 &1890076111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+  m_PrefabInstance: {fileID: 1238992981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1890076112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890076111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1 &1895037066
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,6 +7239,34 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1997741301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 758773583287524102, guid: 395e8752524f4494cb89725e016ef1a1, type: 3}
+  m_PrefabInstance: {fileID: 109976854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1997741302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997741301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!4 &2024158919 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8271322036743016289, guid: 6825feed1c370b24fb23f6ef7c07dea1, type: 3}
@@ -6517,6 +7424,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -6656,6 +7564,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3801ec764775f1e4681b072c500f93a8, type: 3}
+--- !u!1 &2084205300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3375683269115432330, guid: 89f3130128e8aac4aafa182a2c4e98c0, type: 3}
+  m_PrefabInstance: {fileID: 1787082349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2084205301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084205300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
+--- !u!1 &2089040769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1467004937797922871, guid: 0460662c8c260d647a9d22c20380a53b, type: 3}
+  m_PrefabInstance: {fileID: 757851617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089040770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089040769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!1 &2099017561
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,6 +7697,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -6861,6 +7826,34 @@ Transform:
   - {fileID: 960633895}
   m_Father: {fileID: 71369351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2139319798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7542627399415213997, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
+  m_PrefabInstance: {fileID: 1100731194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2139319799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139319798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86b9ef376d43b5418a9ec78c3428226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
+  buildingHeight: 2.5
+  buildingWidth: 1.2
+  fallDuration: 0.35
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnDebrisOnImpact: 1
+  impactDebrisCount: 3
+  visualTransform: {fileID: 0}
+  rubbleSprite: {fileID: 0}
+  destroyIfNoRubble: 1
 --- !u!4 &113422899843695997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9119011029795729064, guid: 68724e1837e79244a8e7071de73039d1, type: 3}
