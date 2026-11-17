@@ -1,38 +1,46 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CarBounce2D : MonoBehaviour
 {
-    [Header("Wrecked Visuals (เปลี่ยนสภาพเป็นรถพัง)")]
-    public Sprite wreckedCarSprite;         // ลากรูปซากรถพังมาใส่ (ถ้าไม่มีระบบจะปรับสีรถให้ดำไหม้แทน)
-    public bool charDarkIfNoSprite = true;  // ปรับสีรถเป็นสีดำไหม้อัตโนมัติหากไม่ได้ใส่รูปซากรถ
-    public bool keepWreckedCarOnMap = true; // ทิ้งซากรถพังค้างไว้บนฉากหลังเด้งหยุด
-    public GameObject hitBuildingEffect;    // เอฟเฟกต์ระเบิด/ควันตอนรถกระเด็นไปชนตึก (ถ้ามี)
+    private enum BounceState
+    {
+        Idle,
+        Bouncing,
+        Stopped
+    }
 
-    [Header("Bounce & Ricochet Physics")]
-    public float launchSpeed = 14f;         // ความแรงตอนรถกระเด็นไปชนตึก
-    public float linearDamping = 0.55f;     // แรงต้าน (ค่าน้อย = รถเด้งชิ่งได้ไกลและนานขึ้น)
-    public float spinSpeed = 720f;          // ความเร็วในการหมุนติ้วกลางอากาศ
-    public bool bounceOffScreenEdges = true;// เด้งชิ่งขอบจอไม่ให้หลุดออกนอกฉาก
+    [Header("Bounce Physics (แรงดีดและการชิ่ง)")]
+    [SerializeField] private float launchSpeed = 14f;          // ความเร็วเริ่มต้นตอนรถกระเด็น
+    [SerializeField] private float linearDamping = 0.75f;      // แรงเสียดทาน (ค่าน้อย = เด้งชิ่งได้ไกลและนานขึ้น)
+    [SerializeField] private float spinSpeed = 720f;           // ความเร็วการหมุนติ้วกลางอากาศ (องศา/วินาที)
+    [SerializeField] private float minComboSpeed = 1.8f;       // ความเร็วขั้นต่ำที่ยังชนแล้วเกิดคอมโบ
+    [SerializeField] private float stopSpeedThreshold = 0.4f;  // ความเร็วที่ถือว่ารถหยุดนิ่งและเลิกคอมโบ
+    [SerializeField] private bool bounceOffScreenEdges = true; // ชิ่งขอบจอไม่ให้รถหลุดออกนอกฉาก
 
-    [Header("Multi-Hop Settings (จังหวะการเด้ง)")]
-    [Min(1)]
-    public int bounceCount = 4;             // จำนวนครั้งที่รถเด้งขึ้น-ลง
-    public float firstBounceDuration = 0.42f;
-    public float firstBounceScale = 1.75f;  // ขยายขนาดตอนลอยสูงสุด
-    [Range(0.4f, 0.9f)]
-    public float bounceDecay = 0.7f;
+    [Header("Hop Visuals (จังหวะเด้งขึ้น-ลง)")]
+    [SerializeField] private float hopFrequency = 3.5f;        // ความถี่ในการเด้งขึ้น-ลง
+    [SerializeField] private float maxHopScale = 1.7f;         // ขนาดขยายสูงสุดตอนลอยกลางอากาศ
 
-    [Header("Combo Impact")]
-    public bool canHitBuildings = true;     // เปิดให้ชนตึกและวัตถุอื่นเพื่อเพิ่มคอมโบ
-    public float impactRadius = 0.85f;      // รัศมีแรงกระแทกตอนตกกระแทกพื้น
+    [Header("Wrecked State (สภาพรถพังหลังระเบิด)")]
+    [SerializeField] private Sprite wreckedCarSprite;          // รูปซากรถพัง (ถ้าไม่มีระบบจะปรับสีรถให้ดำไหม้แทน)
+    [SerializeField] private Color burnedTint = new Color(0.28f, 0.28f, 0.28f, 1f);
+    [SerializeField] private GameObject impactSparkPrefab;     // เอฟเฟกต์ตอนรถกระแทกเป้าหมาย (ถ้ามี)
 
     private Rigidbody2D rb;
     private Camera mainCam;
-    private bool isBouncing = false;
-    private float lastRicochetTime = -1f;
+    private SpriteRenderer[] spriteRenderers;
+    private Vector3 baseScale;
+
+    private BounceState currentState = BounceState.Idle;
+    private Action onBounceFinishedCallback;
+    private float launchTime;
+    private float hopPhase;
+    private readonly Dictionary<GameObject, float> hitCooldowns = new Dictionary<GameObject, float>();
+
+    public bool IsBouncing => currentState == BounceState.Bouncing;
 
     private void Awake()
     {
@@ -40,135 +48,145 @@ public class CarBounce2D : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0f;
         rb.linearDamping = linearDamping;
+
         mainCam = Camera.main;
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        baseScale = transform.localScale;
     }
 
+    // ชื่อเมธอดและพารามิเตอร์ตรงกับที่ ChainExplodable.cs เรียกใช้
     public void StartBounce(Vector2 sourcePosition, Action onBounceFinished)
     {
-        if (isBouncing)
+        if (currentState != BounceState.Idle)
         {
             onBounceFinished?.Invoke();
             return;
         }
 
-        isBouncing = true;
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.simulated = true;
+        currentState = BounceState.Bouncing;
+        onBounceFinishedCallback = onBounceFinished;
+        launchTime = Time.time;
+        hopPhase = 0f;
+        hitCooldowns.Clear();
 
-        // ปิดระบบวิ่งตามถนนเดิม (เผื่อใช้กับรถที่วิ่งบนถนนด้วย)
+        // 1. ปิดระบบวิ่งตามถนนเดิม
         foreach (var move in GetComponentsInChildren<RoadCarMovement>())
         {
             move.enabled = false;
         }
 
-        // เปลี่ยน Collider เป็น Trigger เพื่อให้รถลอยข้ามทางเท้าและรั้วไปชนตึกได้
+        // 2. ตั้ง Collider เป็น Trigger เพื่อให้รถลอยข้ามทางเท้าไปชนตึกได้
         foreach (var col in GetComponentsInChildren<Collider2D>())
         {
             col.isTrigger = true;
         }
 
-        // 1. เปลี่ยนภาพเป็น "รถพัง" ทันทีที่ระเบิด!
-        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-        if (sr != null)
+        // 3. เปลี่ยนเป็นรูปรถพัง/รถไหม้ทันที และดัน Sorting Order ให้อยู่บนสุดระหว่างลอย
+        for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            sr.sortingOrder += 20; // ดันให้อยู่ชั้นบนสุดระหว่างลอยเด้ง
+            SpriteRenderer sr = spriteRenderers[i];
+            if (sr == null) continue;
 
-            if (wreckedCarSprite != null)
+            sr.sortingOrder += 20;
+
+            if (wreckedCarSprite != null && i == 0)
             {
                 sr.sprite = wreckedCarSprite;
                 sr.color = Color.white;
             }
-            else if (charDarkIfNoSprite)
+            else
             {
-                sr.color = new Color(0.32f, 0.32f, 0.32f, 1f); // สีเทาดำเหมือนรถถูกไฟไหม้
+                sr.color = burnedTint;
             }
         }
 
-        // 2. คำนวณทิศทางดีดตัวหนีจากจุดระเบิดเพื่อพุ่งไปหาตึก
-        Vector2 bounceDir = (Vector2)transform.position - sourcePosition;
-        if (bounceDir.sqrMagnitude < 0.001f)
-        {
-            bounceDir = UnityEngine.Random.insideUnitCircle.normalized;
-        }
-        else
-        {
-            float randomAngle = UnityEngine.Random.Range(-25f, 25f);
-            bounceDir = Quaternion.Euler(0, 0, randomAngle) * bounceDir.normalized;
-        }
+        // 4. ส่งแรงดีดตัวหนีจากจุดระเบิดพร้อมสุ่มมุมแฉลบเล็กน้อย
+        Vector2 rawDir = (Vector2)transform.position - sourcePosition;
+        Vector2 launchDir = (rawDir.sqrMagnitude < 0.001f)
+            ? UnityEngine.Random.insideUnitCircle.normalized
+            : (Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-25f, 25f)) * rawDir.normalized);
 
-        StartCoroutine(BounceRoutine(bounceDir, sr, onBounceFinished));
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.simulated = true;
+        rb.linearVelocity = launchDir.normalized * launchSpeed;
+        rb.angularVelocity = spinSpeed * (UnityEngine.Random.value > 0.5f ? 1f : -1f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (isBouncing && bounceOffScreenEdges && mainCam != null)
+        if (currentState != BounceState.Bouncing)
+            return;
+
+        float currentSpeed = rb.linearVelocity.magnitude;
+
+        // เด้งชิ่งขอบหน้าจอกล้อง
+        if (bounceOffScreenEdges && mainCam != null)
         {
-            KeepInsideCameraAndBounce();
+            HandleScreenEdgeBounce();
+        }
+
+        // จำลองการเด้งขึ้น-ลง (ขยายสเกลตามความสูง) แปรผันตามความเร็วที่เหลืออยู่
+        float speedRatio = Mathf.Clamp01(currentSpeed / launchSpeed);
+        hopPhase += Time.fixedDeltaTime * hopFrequency * Mathf.PI * (0.45f + speedRatio);
+        float hopHeight = Mathf.Abs(Mathf.Sin(hopPhase));
+        float targetScale = Mathf.Lerp(1f, Mathf.Lerp(1f, maxHopScale, speedRatio), hopHeight);
+        transform.localScale = baseScale * targetScale;
+
+        // เมื่อความเร็วลดลงต่ำกว่าเกณฑ์ -> หยุดรถและเลิกนับคอมโบ
+        if (Time.time - launchTime > 0.15f && currentSpeed <= stopSpeedThreshold)
+        {
+            StopBouncing();
         }
     }
 
-    private IEnumerator BounceRoutine(Vector2 bounceDir, SpriteRenderer sr, Action onBounceFinished)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Vector3 baseScale = transform.localScale;
+        // ถ้าหยุดเด้งแล้ว หรือความเร็วต่ำกว่าเกณฑ์ จะไม่เกิดคอมโบอีก
+        if (currentState != BounceState.Bouncing)
+            return;
 
-        rb.linearVelocity = bounceDir * launchSpeed;
-        float spinDir = (UnityEngine.Random.value > 0.5f) ? 1f : -1f;
-        rb.angularVelocity = spinSpeed * spinDir;
+        if (rb.linearVelocity.magnitude < minComboSpeed)
+            return;
 
-        float currentDuration = firstBounceDuration;
-        float currentPeakScale = firstBounceScale;
+        // ข้ามโซนวางระเบิด ตัวแม่ของฉาก และเศษซากชิ้นเล็ก
+        if (other.gameObject.name == "PlacementZone" ||
+            other.gameObject.name == "City Prop" ||
+            other.GetComponentInParent<BuildingDebris2D>() != null)
+            return;
 
-        for (int i = 0; i < bounceCount; i++)
+        ChainExplodable target = other.GetComponentInParent<ChainExplodable>();
+        if (target == null || target.gameObject == this.gameObject)
+            return;
+
+        if (target.destructibleType == DestructibleType.PlayerBomb)
+            return;
+
+          // ป้องกันการชนเป้าหมายเดิมซ้ำถี่เกินไปในเสี้ยววินาที
+        if (hitCooldowns.TryGetValue(target.gameObject, out float nextHitTime) && Time.time < nextHitTime)
+            return;
+
+        hitCooldowns[target.gameObject] = Time.time + 0.25f;
+
+        // สั่งให้ตึกหรือรถคันอื่นที่โดนชนระเบิด/ล้ม/เด้งต่อเป็นคอมโบ!
+        target.Explode(transform.position);
+
+        if (impactSparkPrefab != null)
         {
-            float elapsed = 0f;
-
-            while (elapsed < currentDuration)
-            {
-                elapsed += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsed / currentDuration);
-
-                float heightCurve = Mathf.Sin(t * Mathf.PI);
-                float scaleMultiplier = Mathf.Lerp(1f, currentPeakScale, heightCurve);
-                transform.localScale = baseScale * scaleMultiplier;
-
-                yield return null;
-            }
-
-            // จังหวะรถตกกระแทกพื้น -> เช็กชนตึกรอบตัว
-            transform.localScale = baseScale;
-            TriggerAreaImpact();
-
-            if (rb.linearVelocity.sqrMagnitude > 0.5f)
-            {
-                float jitter = UnityEngine.Random.Range(-30f, 30f);
-                rb.linearVelocity = Quaternion.Euler(0, 0, jitter) * rb.linearVelocity;
-                rb.angularVelocity = -rb.angularVelocity * 0.85f;
-            }
-
-            currentDuration *= bounceDecay;
-            currentPeakScale = 1f + ((currentPeakScale - 1f) * bounceDecay);
+            Instantiate(impactSparkPrefab, transform.position, Quaternion.identity);
         }
 
-        // จบการเด้ง -> หยุดนิ่งเป็นซากรถพังบนฉาก
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        transform.localScale = baseScale;
-        isBouncing = false;
-
-        if (sr != null)
+        // สะท้อนทิศทางรถให้เด้งชิ่งกลับออกไปหาเป้าหมายอื่นต่อ
+        Vector2 surfaceNormal = ((Vector2)transform.position - (Vector2)other.bounds.center).normalized;
+        if (surfaceNormal.sqrMagnitude > 0.01f)
         {
-            sr.sortingOrder -= 20;
-        }
-
-        onBounceFinished?.Invoke();
-
-        if (!keepWreckedCarOnMap)
-        {
-            Destroy(gameObject);
+            Vector2 reflected = Vector2.Reflect(rb.linearVelocity, surfaceNormal);
+            reflected = Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(-15f, 15f)) * reflected;
+            rb.linearVelocity = reflected * 0.9f;
+            rb.angularVelocity = -rb.angularVelocity;
         }
     }
 
-    private void KeepInsideCameraAndBounce()
+    private void HandleScreenEdgeBounce()
     {
         Vector3 vp = mainCam.WorldToViewportPoint(transform.position);
         Vector2 vel = rb.linearVelocity;
@@ -187,49 +205,26 @@ public class CarBounce2D : MonoBehaviour
         }
     }
 
-    // ชนตึกหรือรถคันอื่นระหว่างกระเด็น -> สั่งระเบิดเพิ่มคอมโบและเด้งชิ่งต่อ
-    private void OnTriggerEnter2D(Collider2D other)
+    private void StopBouncing()
     {
-        if (!isBouncing || !canHitBuildings) return;
-        if (other.GetComponentInParent<BuildingDebris2D>() != null) return;
+        currentState = BounceState.Stopped;
 
-        ChainExplodable target = other.GetComponentInParent<ChainExplodable>();
-        if (target != null && target.gameObject != this.gameObject && target.destructibleType != DestructibleType.PlayerBomb)
+        // หยุดการเคลื่อนที่ทั้งหมดและล็อกซากรถให้อยู่กับที่บนฉาก
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        transform.localScale = baseScale;
+
+        foreach (var sr in spriteRenderers)
         {
-            // สั่งให้ตึกที่โดนชนระเบิดและล้มต่อ (บวก Combo อัตโนมัติ)
-            target.Explode(transform.position);
-
-            if (hitBuildingEffect != null)
+            if (sr != null)
             {
-                Instantiate(hitBuildingEffect, transform.position, Quaternion.identity);
-            }
-
-            // เด้งชิ่งสะท้อนกลับไปหาตึกอื่นต่อ
-            if (Time.time - lastRicochetTime > 0.08f)
-            {
-                lastRicochetTime = Time.time;
-                Vector2 normal = ((Vector2)transform.position - (Vector2)other.transform.position).normalized;
-                if (normal.sqrMagnitude > 0.01f)
-                {
-                    rb.linearVelocity = Vector2.Reflect(rb.linearVelocity, normal);
-                    rb.angularVelocity = -rb.angularVelocity;
-                }
+                sr.sortingOrder -= 20;
             }
         }
-    }
 
-    private void TriggerAreaImpact()
-    {
-        if (!canHitBuildings) return;
-
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, impactRadius);
-        foreach (Collider2D hit in hits)
-        {
-            ChainExplodable target = hit.GetComponentInParent<ChainExplodable>();
-            if (target != null && target.gameObject != this.gameObject && target.destructibleType != DestructibleType.PlayerBomb)
-            {
-                target.Explode(transform.position);
-            }
-        }
+        // แจ้งกลับไปที่ ChainExplodable ว่าเด้งเสร็จแล้ว (เพื่อให้ GameResultManager นับจบด่านได้)
+        onBounceFinishedCallback?.Invoke();
+        onBounceFinishedCallback = null;
     }
 }
