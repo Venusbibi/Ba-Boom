@@ -8,10 +8,10 @@ public class ChainExplodable : MonoBehaviour
     public float explosionDelay = 0.2f;
 
     [Header("Physics Debris (ซากตึก / ชิ้นส่วนรถกระเด็น)")]
-    public BuildingDebris2D[] debrisPrefabs;  // ใส่ Prefab เศษซากตึกหรือชิ้นส่วนรถ
-    public int debrisCount = 4;               // จำนวนชิ้นที่กระเด็นตอนระเบิด
-    public float debrisMinSpeed = 5f;         // ความเร็วกระเด็นต่ำสุด
-    public float debrisMaxSpeed = 9f;         // ความเร็วกระเด็นสูงสุด
+    public BuildingDebris2D[] debrisPrefabs;
+    public int debrisCount = 4;
+    public float debrisMinSpeed = 5f;
+    public float debrisMaxSpeed = 9f;
 
     [Header("Score Settings")]
     public int scoreValue = 100;
@@ -41,7 +41,6 @@ public class ChainExplodable : MonoBehaviour
             sr.sprite = damagedSprite;
         }
 
-        // แจ้ง GameResultManager ว่าเริ่มทำงาน (กันตัดจบด่านก่อนตึกล้มและซากตกพื้น)
         if (GameResultManager.Instance != null)
         {
             GameResultManager.Instance.RegisterExplosion();
@@ -79,7 +78,7 @@ public class ChainExplodable : MonoBehaviour
             }
         }
 
-        // 2. ดีดเศษซากฟิสิกส์ชุดแรกออกจากจุดระเบิด
+        // 2. ดีดเศษซากฟิสิกส์ออกจากจุดระเบิด
         Vector2 blastDir = ((Vector2)transform.position - sourcePosition).normalized;
         SpawnDebrisBurst(transform.position, blastDir, debrisCount);
 
@@ -99,8 +98,12 @@ public class ChainExplodable : MonoBehaviour
             }
         }
 
-        // 4. ถ้าเป็นตึกที่มี BuildingTopple2D ให้เอียงล้มไปทับเป้าหมายต่อก่อนลบ
+        // ========================================================
+        // 4. จุดที่เพิ่มระบบรถเด้ง (CarBounce2D) ต่อจากส่วนบันทึกคะแนน
+        // ========================================================
         BuildingTopple2D topple = GetComponent<BuildingTopple2D>();
+        CarBounce2D carBounce = GetComponent<CarBounce2D>();
+
         if (topple != null)
         {
             topple.StartTopple(sourcePosition, () =>
@@ -111,9 +114,19 @@ public class ChainExplodable : MonoBehaviour
                 }
             });
         }
+        else if (carBounce != null)
+        {
+            // สั่งให้รถเด้งกระเด็นออกไปก่อน แล้วค่อยแจ้ง ExplosionFinished() หลังตกพื้น
+            carBounce.StartBounce(sourcePosition, () =>
+            {
+                if (GameResultManager.Instance != null)
+                {
+                    GameResultManager.Instance.ExplosionFinished();
+                }
+            });
+        }
         else
         {
-            // ถ้าเป็นรถ ถังน้ำมัน หรือระเบิด ให้จบการทำงานและลบทิ้งทันที
             if (GameResultManager.Instance != null)
             {
                 GameResultManager.Instance.ExplosionFinished();
@@ -121,9 +134,9 @@ public class ChainExplodable : MonoBehaviour
 
             Destroy(gameObject);
         }
+        // ========================================================
     }
 
-    // ฟังก์ชันดีดเศษซากฟิสิกส์ (เรียกใช้ได้ทั้งตอนระเบิด และตอนตึกล้มฟาดพื้น)
     public void SpawnDebrisBurst(Vector2 origin, Vector2 preferredDir, int count)
     {
         if (debrisPrefabs == null || debrisPrefabs.Length == 0 || count <= 0)
