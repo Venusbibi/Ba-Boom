@@ -30,20 +30,42 @@ public class ChainExplodable : MonoBehaviour
 
     public void Explode(Vector2 sourcePosition)
     {
+        // ป้องกันไม่ให้เผลอทำลายตัวแม่ของฉาก
+        if (gameObject.name == "City Prop")
+            return;
+
         if (hasExploded)
             return;
 
         hasExploded = true;
 
+        if (GameResultManager.Instance != null)
+        {
+            GameResultManager.Instance.RegisterExplosion();
+        }
+
+        // เช็คว่าเป็นตึกที่มีระบบล้มแบบโดมิโน่หรือไม่
+        BuildingTopple2D topple = GetComponent<BuildingTopple2D>();
+        if (topple != null)
+        {
+            // ล้มแบบโดมิโน่ก่อน -> พอฟาดพื้นสนิทค่อยสั่งระเบิดและคิดคะแนน
+            topple.StartTopple(sourcePosition, () =>
+            {
+                TriggerBlastEffectsAndScore(sourcePosition, useAreaBlast: false);
+
+                if (GameResultManager.Instance != null)
+                {
+                    GameResultManager.Instance.ExplosionFinished();
+                }
+            });
+            return;
+        }
+
+        // กรณีเป็นระเบิดผู้เล่น รถ หรือถังน้ำมัน ให้ทำงานตามปกติ
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (damagedSprite != null && sr != null)
         {
             sr.sprite = damagedSprite;
-        }
-
-        if (GameResultManager.Instance != null)
-        {
-            GameResultManager.Instance.RegisterExplosion();
         }
 
         StartCoroutine(ExplosionRoutine(sourcePosition));
@@ -53,70 +75,11 @@ public class ChainExplodable : MonoBehaviour
     {
         yield return new WaitForSeconds(explosionDelay);
 
-        if (explosionEffectPrefab != null)
-        {
-            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-        }
+        TriggerBlastEffectsAndScore(sourcePosition, useAreaBlast: true);
 
-        if (BaBoomAudioManager.Instance != null)
-        {
-            BaBoomAudioManager.Instance.PlayExplosion();
-        }
-
-        // 1. ส่งแรงระเบิดระยะประชิดรอบตัว
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-        foreach (Collider2D hit in hits)
-        {
-            ChainExplodable target = hit.GetComponent<ChainExplodable>();
-            if (target == null || target == this)
-                continue;
-
-            float distance = Vector2.Distance(transform.position, target.transform.position);
-            if (distance <= explosionRadius)
-            {
-                target.Explode(transform.position);
-            }
-        }
-
-        // 2. ดีดเศษซากฟิสิกส์ออกจากจุดระเบิด
-        Vector2 blastDir = ((Vector2)transform.position - sourcePosition).normalized;
-        SpawnDebrisBurst(transform.position, blastDir, debrisCount);
-
-        // 3. บันทึกคะแนน สถิติรถ/ตึก และ Combo เข้าระบบเดิม
-        if (destructibleType != DestructibleType.PlayerBomb)
-        {
-            if (ScoreManager.Instance != null)
-            {
-                ScoreManager.Instance.AddScore(scoreValue);
-            }
-
-            ResultDataManager.RecordDestruction(scoreValue, destructibleType);
-
-            if (scoreValue > 0 && BaBoomAudioManager.Instance != null)
-            {
-                BaBoomAudioManager.Instance.PlayScore();
-            }
-        }
-
-        // ========================================================
-        // 4. จุดที่เพิ่มระบบรถเด้ง (CarBounce2D) ต่อจากส่วนบันทึกคะแนน
-        // ========================================================
-        BuildingTopple2D topple = GetComponent<BuildingTopple2D>();
         CarBounce2D carBounce = GetComponent<CarBounce2D>();
-
-        if (topple != null)
+        if (carBounce != null)
         {
-            topple.StartTopple(sourcePosition, () =>
-            {
-                if (GameResultManager.Instance != null)
-                {
-                    GameResultManager.Instance.ExplosionFinished();
-                }
-            });
-        }
-        else if (carBounce != null)
-        {
-            // สั่งให้รถเด้งกระเด็นออกไปก่อน แล้วค่อยแจ้ง ExplosionFinished() หลังตกพื้น
             carBounce.StartBounce(sourcePosition, () =>
             {
                 if (GameResultManager.Instance != null)
@@ -134,7 +97,57 @@ public class ChainExplodable : MonoBehaviour
 
             Destroy(gameObject);
         }
-        // ========================================================
+    }
+
+    private void TriggerBlastEffectsAndScore(Vector2 sourcePosition, bool useAreaBlast)
+    {
+        if (explosionEffectPrefab != null)
+        {
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        }
+
+        if (BaBoomAudioManager.Instance != null)
+        {
+            BaBoomAudioManager.Instance.PlayExplosion();
+        }
+
+        // ระเบิดรอบตัว (ใช้เฉพาะตอนวางระเบิดลูกแรกหรือรถ/ถังระเบิด ส่วนตึกจะส่งแรงตามทิศทางล้มแทน)
+        if (useAreaBlast)
+        {
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+            foreach (Collider2D hit in hits)
+            {
+                ChainExplodable target = hit.GetComponent<ChainExplodable>();
+                if (target == null || target == this)
+                    continue;
+
+                float distance = Vector2.Distance(transform.position, target.transform.position);
+                if (distance <= explosionRadius)
+                {
+                    target.Explode(transform.position);
+                }
+            }
+        }
+
+        // ดีดเศษซากฟิสิกส์ออกจากจุดระเบิด
+        Vector2 blastDir = ((Vector2)transform.position - sourcePosition).normalized;
+        SpawnDebrisBurst(transform.position, blastDir, debrisCount);
+
+        // บันทึกคะแนน สถิติ และ Combo
+        if (destructibleType != DestructibleType.PlayerBomb)
+        {
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(scoreValue);
+            }
+
+            ResultDataManager.RecordDestruction(scoreValue, destructibleType);
+
+            if (scoreValue > 0 && BaBoomAudioManager.Instance != null)
+            {
+                BaBoomAudioManager.Instance.PlayScore();
+            }
+        }
     }
 
     public void SpawnDebrisBurst(Vector2 origin, Vector2 preferredDir, int count)
