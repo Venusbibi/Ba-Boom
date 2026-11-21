@@ -747,13 +747,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71369350}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.31067, y: -0.6182, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2135465712}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 508909892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &72693887 stripped
 Transform:
@@ -1917,13 +1917,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -2381,6 +2394,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 144406975211894461, guid: 8376ecfe485da8c4fa7997663f4b5774, type: 3}
   m_PrefabInstance: {fileID: 501714376}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &508909892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8238770628499247185, guid: c303831522c8e7341b9ba3fe05ce4bbf, type: 3}
+  m_PrefabInstance: {fileID: 576183276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &513034892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,7 +2761,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8238770628499247185, guid: c303831522c8e7341b9ba3fe05ce4bbf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 71369351}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c303831522c8e7341b9ba3fe05ce4bbf, type: 3}
 --- !u!4 &579029328 stripped
@@ -2839,7 +2860,11 @@ MonoBehaviour:
         m_SelectedSource:
           rid: -2
         m_Provider2DCache:
-          rid: -2
+          rid: 3936110273425834070
+    - rid: 3936110273425834070
+      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Cache: []
 --- !u!4 &592376319
 Transform:
   m_ObjectHideFlags: 0
@@ -2874,13 +2899,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -3156,13 +3194,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -3345,13 +3396,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -3677,13 +3741,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -4144,6 +4221,19 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.08
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
   collapseDustCloudPrefab: {fileID: 0}
   smokeDestroyDelay: 3.5
@@ -4426,13 +4516,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -4665,13 +4768,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -5128,13 +5244,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -5871,13 +6000,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -5906,13 +6048,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -5936,13 +6091,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -6028,13 +6196,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -6299,13 +6480,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -6573,13 +6767,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -6685,13 +6892,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -7055,13 +7275,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -7157,13 +7390,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -7275,13 +7521,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -7442,13 +7701,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -7769,13 +8041,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -7799,13 +8084,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -8035,13 +8333,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingTopple2D
   buildingHeight: 2.5
   buildingWidth: 1.2
-  fallDuration: 0.35
+  fallDuration: 1
   impactTriggerRatio: 0.65
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
+  extraDominoCombo: 1
+  multiplyBuildingScoreByCombo: 1
+  dominoCrushBonusScore: 150
+  onlyDoubleWhenCrushingNext: 0
+  showFloatingCombo: 1
+  showEarnedScoreOnPopup: 1
+  popupFont: {fileID: 0}
+  popupFontSize: 6.5
+  comboPopupColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  customPopupPrefab: {fileID: 0}
+  maxTiltAngle: 82
+  shakeIntensity: 0.12
+  midCollapseSmokeCount: 3
   baseCrackSmokePrefab: {fileID: 0}
-  collapseDustCloudPrefab: {fileID: 0}
+  collapseDustCloudPrefab: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
   smokeDestroyDelay: 3.5
   visualTransform: {fileID: 0}
   rubbleSprite: {fileID: 0}
@@ -8116,63 +8427,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68724e1837e79244a8e7071de73039d1, type: 3}
---- !u!1001 &7130842332960854340
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.58075
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.59081
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126159671748212160, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8868226024113171504, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
-      propertyPath: m_Name
-      value: CollapseDustCloud
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e95b15f07ef05004d83657d9411ec13b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8191,7 +8445,6 @@ SceneRoots:
   - {fileID: 711917397}
   - {fileID: 43398308}
   - {fileID: 803681578}
-  - {fileID: 71369351}
   - {fileID: 576183276}
   - {fileID: 1079263975}
   - {fileID: 212822494}
@@ -8200,4 +8453,3 @@ SceneRoots:
   - {fileID: 841344130}
   - {fileID: 59467300}
   - {fileID: 2070172184}
-  - {fileID: 7130842332960854340}
